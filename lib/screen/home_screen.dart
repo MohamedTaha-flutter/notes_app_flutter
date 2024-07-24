@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../Widget/Notes_Widget.dart';
+import '../Widget/model_bottom_sheet_widget.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -33,11 +34,26 @@ class NotesView extends StatelessWidget {
                   )))
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: NotesWidget(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView.separated(
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) => const NotesWidget(),
+          separatorBuilder: (context, index) => const SizedBox(
+            height: 10,
+          ),
+          itemCount: 15,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => const ShowModelBottomSheetWidget());
+        },
+        backgroundColor: Colors.teal,
+        child: const Icon(Icons.add),
       ),
     );
   }
 }
-
