@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../Widget/Notes_Widget.dart';
 import '../Widget/model_bottom_sheet_widget.dart';
+import '../styel/color.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -49,9 +50,9 @@ class NotesView extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
               context: context,
-              builder: (context) => const ShowModelBottomSheetWidget());
+              builder: (context) =>  ShowModelBottomSheetWidget());
         },
-        backgroundColor: Colors.teal,
+        backgroundColor: mainColor,
         child: const Icon(Icons.add),
       ),
     );
