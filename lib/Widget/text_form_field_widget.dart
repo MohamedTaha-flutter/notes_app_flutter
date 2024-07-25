@@ -15,18 +15,18 @@ class TextFormFieldWidget extends StatelessWidget {
     this.suffixIcon,
     this.onSubmitted,
     this.isPassword = false,
-    this.contentVerticalPadding = 16.0 ,
+    required this.maxLine,
   });
   final bool isPassword ;
   final Widget label;
   final Widget prefixIcon;
+  final int maxLine ;
   Widget? suffixIcon;
   final TextEditingController controller;
   final TextInputType keyboardType;
   final Function(String)? onChanged;
   final Function(String)? onSubmitted;
   final String? Function(String?)? validator;
-   double contentVerticalPadding ;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -37,9 +37,9 @@ class TextFormFieldWidget extends StatelessWidget {
 
       keyboardType: keyboardType,
       onChanged: onChanged,
+      maxLines: maxLine,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: contentVerticalPadding ),
         label: label ,
         prefixIcon: prefixIcon ,
         suffixIcon: suffixIcon ,
