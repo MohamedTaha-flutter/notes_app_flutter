@@ -13,7 +13,7 @@ class ShowModelBottomSheetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Container(
+      child: SizedBox(
         height: 800,
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
